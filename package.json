@@ -1,0 +1,22 @@
+{
+  "name": "npx-bun-demo",
+  "version": "1.0.0",
+  "module": "src/index.ts",
+  "type": "module",
+  "scripts": {
+    "build": "bun run build.ts",
+    "prepack": "bun run build"
+  },
+  "bin": {
+    "npx-bun-demo": "./arch-switch.mjs"
+  },
+  "files": [
+    "dist",
+    "arch-switch.mjs"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest",
+    "chalk": "^5.4.1",
+    "typescript": "^5.0.0"
+  }
+}
