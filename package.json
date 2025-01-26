@@ -1,18 +1,19 @@
 {
   "name": "npx-bun-demo",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "module": "src/index.ts",
   "type": "module",
   "scripts": {
     "build": "bun run build.ts",
-    "prepack": "bun run build"
+    "prepack": "bun run build",
+    "postinstall": "./fetch-for-arch.mjs"
   },
   "bin": {
     "npx-bun-demo": "arch-switch.mjs"
   },
   "files": [
-    "dist",
-    "arch-switch.mjs"
+    "arch-switch.mjs",
+    "fetch-for-arch.mjs"
   ],
   "devDependencies": {
     "@types/bun": "latest",
