@@ -1,6 +1,6 @@
 {
   "name": "npx-bun-demo",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "module": "src/index.ts",
   "type": "module",
   "scripts": {

@@ -9,8 +9,7 @@ console.log(
   `\n\nRunning '${['npx-bun-demo (arch-switch) |>', ...process.argv.slice(2)].join(' ')}' with: ${process.isBun ? 'bun' : 'node'}`
 );
 
-import { spawn } from 'child_process';
-import { readFileSync } from 'fs';
+import { readFileSync, createWriteStream } from 'fs';
 import { arch as osArch, platform as osPlatform } from 'os';
 
 const KnownArchitectures = ['arm64', 'x64'];
@@ -48,5 +47,5 @@ const version = JSON.parse(readFileSync('./package.json', 'utf8')).version;
 const fileName = `bun-${executableName}-modern-npx-bun-demo${platform === 'windows' ? '.exe' : ''}`;
 const downloadSrc = `https://raw.githubusercontent.com/runspired/npx-bun-demo/refs/tags/v${version}/dist/${fileName}`;
 const result = await fetch(downloadSrc);
-const dest = fs.createWriteStream(`./dist/${fileName}`);
+const dest = createWriteStream(`./dist/${fileName}`);
 result.body.pipe(dest);
