@@ -38,10 +38,6 @@ if (InvalidCombinations.includes(executableName)) {
   ExitError(`Unsupported architecture '${arch}' for current platform '${platform}'`);
 }
 
-if (existsSync(`./dist/${fileName}`)) {
-  return;
-}
-
 async function fetchAsset() {
   const { readFileSync, createWriteStream, mkdirSync } = await import('fs');
   const { Readable } = await import('stream');
@@ -58,4 +54,6 @@ async function fetchAsset() {
   await finished(Readable.fromWeb(result.body).pipe(dest));
 }
 
-fetchAsset();
+if (!existsSync(`./dist/${fileName}`)) {
+  fetchAsset();
+}
