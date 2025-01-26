@@ -1,6 +1,6 @@
 const KnownArchitectures = ['arm64', 'x64'];
 // windows is deactivated because the demo stores the file in github which doesnt support files > 100MB
-const KnownOperatingSystems = ['linux', /*'windows'*/, 'darwin'];
+const KnownOperatingSystems = ['linux', /*'windows',*/ 'darwin'];
 const InvalidCombinations = ['windows-arm64'];
 
 outer: for (const arch of KnownArchitectures) {
