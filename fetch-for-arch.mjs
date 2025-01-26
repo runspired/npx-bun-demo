@@ -38,6 +38,8 @@ if (InvalidCombinations.includes(executableName)) {
   ExitError(`Unsupported architecture '${arch}' for current platform '${platform}'`);
 }
 
+const fileName = `bun-${executableName}-modern-npx-bun-demo${platform === 'windows' ? '.exe' : ''}`;
+
 async function fetchAsset() {
   const { readFileSync, createWriteStream, mkdirSync } = await import('fs');
   const { Readable } = await import('stream');
@@ -46,7 +48,6 @@ async function fetchAsset() {
   mkdirSync('./dist', { recursive: true });
 
   const version = JSON.parse(readFileSync('./package.json', 'utf8')).version;
-  const fileName = `bun-${executableName}-modern-npx-bun-demo${platform === 'windows' ? '.exe' : ''}`;
   const downloadSrc = `https://raw.githubusercontent.com/runspired/npx-bun-demo/refs/tags/v${version}/dist/${fileName}`;
   const result = await fetch(downloadSrc);
   const dest = createWriteStream(`./dist/${fileName}`);
