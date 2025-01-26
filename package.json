@@ -8,7 +8,7 @@
     "prepack": "bun run build"
   },
   "bin": {
-    "npx-bun-demo": "./arch-switch.mjs"
+    "npx-bun-demo": "arch-switch.mjs"
   },
   "files": [
     "dist",
