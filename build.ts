@@ -1,5 +1,5 @@
-const KnownArchitectures = ['arm64', 'x64'];
-const KnownOperatingSystems = ['linux', 'windows', 'darwin'];
+const KnownArchitectures = ['arm64', /*'x64'*/];
+const KnownOperatingSystems = [/*'linux', 'windows',*/ 'darwin'];
 const InvalidCombinations = ['windows-arm64'];
 
 outer: for (const arch of KnownArchitectures) {
